@@ -39,3 +39,5 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 # Gema para conectarce a facebook
 gem 'koala', '~> 1.10.1'
+# Gema para conectarce a un servicio
+gem 'httparty'

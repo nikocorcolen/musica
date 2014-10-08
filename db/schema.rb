@@ -11,11 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141007215203) do
+ActiveRecord::Schema.define(version: 20141008230632) do
 
   create_table "grupos", force: true do |t|
     t.string   "nombre"
     t.integer  "like"
+    t.integer  "like_pais"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

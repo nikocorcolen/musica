@@ -24,21 +24,14 @@ class GruposController < ApplicationController
   # POST /grupos
   # POST /grupos.json
   def create
-    graph = Koala::Facebook::GraphAPI.new
-    @grupo = Grupo.new(grupo_params)
-    likes = graph.get_object("#{@grupo.nombre}")["likes"]
-    if likes.nil?
-      likes = 0
-    end
-    @grupo.like = likes
 
+    @grupo = Grupo.new(grupo_params)
     respond_to do |format|
-      if @grupo.save
+      if @grupo.graph
+        @grupo.save
         format.html { redirect_to @grupo, notice: 'Grupo was successfully created.' }
-        format.json { render :show, status: :created, location: @grupo }
       else
         format.html { render :new }
-        format.json { render json: @grupo.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -49,10 +42,8 @@ class GruposController < ApplicationController
     respond_to do |format|
       if @grupo.update(grupo_params)
         format.html { redirect_to @grupo, notice: 'Grupo was successfully updated.' }
-        format.json { render :show, status: :ok, location: @grupo }
       else
         format.html { render :edit }
-        format.json { render json: @grupo.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -75,6 +66,6 @@ class GruposController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def grupo_params
-      params.require(:grupo).permit(:nombre, :like)
+      params.require(:grupo).permit(:nombre, :like, :like_pais)
     end
 end

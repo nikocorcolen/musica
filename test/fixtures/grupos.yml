@@ -3,7 +3,9 @@
 one:
   nombre: MyString
   like: 1
+  like_pais: 1
 
 two:
   nombre: MyString
   like: 1
+  like_pais: 1

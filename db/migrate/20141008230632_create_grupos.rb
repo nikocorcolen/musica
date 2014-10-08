@@ -3,6 +3,7 @@ class CreateGrupos < ActiveRecord::Migration
     create_table :grupos do |t|
       t.string :nombre
       t.integer :like
+      t.integer :like_pais
 
       t.timestamps
     end

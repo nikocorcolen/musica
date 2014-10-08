@@ -4,7 +4,8 @@
   <thead>
     <tr>
       <th>Nombre</th>
-      <th>Like</th>
+      <th>Likes</th>
+      <th>Likes Chile</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,6 +15,7 @@
       <tr>
         <td><%= grupo.nombre %></td>
         <td><%= grupo.like %></td>
+        <td><%= grupo.like_pais %></td>
         <td><%= link_to 'Show', grupo %></td>
         <td><%= link_to 'Edit', edit_grupo_path(grupo) %></td>
         <td><%= link_to 'Destroy', grupo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
