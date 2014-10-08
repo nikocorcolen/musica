@@ -1,12 +1,14 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+La app toma urls de la siguiente forma:
+www.facebook.com/foofighters
+www.facebook.com/metallica
+y obtiene los likes que esta tenga
 
 Things you may want to cover:
 
 * Ruby version
-
+	1.9.3
 * System dependencies
 
 * Configuration
