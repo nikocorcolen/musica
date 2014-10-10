@@ -27,11 +27,13 @@ class Grupo < ActiveRecord::Base
 
 	def likesPais
 		begin
-			token = "CAACEdEose0cBAGcFpoSWzhTyqMmbpGM3ZCQ11oJZBkZAFAoKq8RqMaJeLzgdq2mCx9ZCkUB7QYWoRGs6WJLKqH1lBvVOgENbbDDAgTWGxMyrup2viRvR6PEXE3Wq85astj8d5K15BwYjZBCbOtmOH86ZA6ZBDWcMTndZC6iZAbUuhY4aUi3bIPo8wgHBrpFEAqsUyitm8vADpUjuCdavCAIYMxkr8jH1CmVYZD"
+			token = "CAACEdEose0cBANmotbcoA32N33hYVZBmqtnKvSKfLqgsHQpq28rmZBGhoX8lJMmf9vGyrzifdjAaybcjpeqXem9mmZBne7d2selwZBZCSFxf6Enw7l3qGpIJsZAnn6qr8nyA4piwbf98DFw1z2TewYxZCPR4HQ7kTivjBOzfyfsdThuZC7HC2ZAb2PTZAomVuHTwRaSECw7MbWDFX5gHSk9iZB55mJgXG8kl0cZD"
 			response = HTTParty.get("https://graph.facebook.com/#{self.nombre}/insights/page_fans_country?access_token="+token, :query => {:oauth_token => token})
 			json = JSON.parse(response.body)
 			self.like_pais = json['data'][0]['values'][0]['value']['CL']
+			true
 		rescue Exception => e
+			#token caduco
 			self.like_pais = 0
 		end
 	end
