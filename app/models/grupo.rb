@@ -27,7 +27,7 @@ class Grupo < ActiveRecord::Base
 
 	def likesPais
 		begin
-			token = "CAACEdEose0cBANmotbcoA32N33hYVZBmqtnKvSKfLqgsHQpq28rmZBGhoX8lJMmf9vGyrzifdjAaybcjpeqXem9mmZBne7d2selwZBZCSFxf6Enw7l3qGpIJsZAnn6qr8nyA4piwbf98DFw1z2TewYxZCPR4HQ7kTivjBOzfyfsdThuZC7HC2ZAb2PTZAomVuHTwRaSECw7MbWDFX5gHSk9iZB55mJgXG8kl0cZD"
+			token = "253484358191014|7SMxPnY4qbTzbARJ69WKspVcZXU"
 			response = HTTParty.get("https://graph.facebook.com/#{self.nombre}/insights/page_fans_country?access_token="+token, :query => {:oauth_token => token})
 			json = JSON.parse(response.body)
 			self.like_pais = json['data'][0]['values'][0]['value']['CL']
